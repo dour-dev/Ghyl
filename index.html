@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Download File</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background: url('background.jpg') no-repeat center center/cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+    }
+
+    /* Tên góc trái */
+    .brand {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 18px;
+        font-weight: bold;
+        mix-blend-mode: difference; /* Tự đổi trắng/đen */
+        color: white;
+    }
+
+    /* Khung file */
+    .card {
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(10px);
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Viền cầu vồng */
+    .card::before {
+        content: "";
+        position: absolute;
+        inset: -4px;
+        border-radius: 20px;
+        background: linear-gradient(
+            45deg,
+            red, orange, yellow, green, blue, indigo, violet, red
+        );
+        z-index: -1;
+        background-size: 300% 300%;
+        animation: rainbow 5s linear infinite;
+    }
+
+    @keyframes rainbow {
+        0% { background-position: 0% 50%; }
+        100% { background-position: 300% 50%; }
+    }
+
+    button {
+        padding: 12px 25px;
+        font-size: 16px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        background: white;
+        font-weight: bold;
+    }
+
+    button:hover {
+        background: #ddd;
+    }
+
+    .status {
+        margin-top: 15px;
+        color: white;
+        font-size: 14px;
+    }
+</style>
+</head>
+<body>
+
+<div class="brand">mã hoá game [Wink - NE]</div>
+
+<div class="card">
+    <h2 style="color:white;">Tải File</h2>
+    <button onclick="startDownload()">Download</button>
+    <div class="status" id="status"></div>
+</div>
+
+<script>
+function startDownload() {
+    let delay = Math.floor(Math.random() * 10) + 1;
+    let status = document.getElementById("status");
+    status.innerText = "Vui lòng chờ " + delay + " giây...";
+
+    setTimeout(function() {
+        status.innerText = "Đang tải...";
+        window.location.href = "jhjh.apk";
+    }, delay * 1000);
+}
+</script>
+
+</body>
+  </html>
